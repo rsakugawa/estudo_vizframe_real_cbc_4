@@ -1,0 +1,78 @@
+<mvc:View controllerName="estudovizframerealcbc.controller.ViewChart" 
+xmlns:chart="sap.suite.ui.commons" 
+xmlns:core="sap.ui.core"
+xmlns:form="sap.ui.layout.form" 
+xmlns:html="http://www.w3.org/1999/xhtml" 
+xmlns:layout="sap.ui.layout" 
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:viz="sap.viz.ui5.controls" 
+xmlns:vizData="sap.viz.ui5.data" 
+xmlns:vizFeeds="sap.viz.ui5.controls.common.feeds" 
+xmlns="sap.m">
+
+ <Shell id="shell">	
+<App>
+<pages>
+<Page title="{i18n>TituloPagina}" showNavButton="true" navButtonPress=".onNavBack">
+<content>
+
+<chart:ChartContainer autoAdjustHeight="true" id="idPopOver"  title="Titulo do Container">
+<!-- inicio do container com gráfico -->
+
+<chart:ChartContainerContent icon="sap-icon://horizontal-stacked-chart" 
+                            title="Titulo do Grafico">
+
+<chart:content>
+<viz:VizFrame uiConfig="{applicationSet:'fiori'}" id="timeAxisColumnChart" />
+</chart:content>
+
+</chart:ChartContainerContent>
+
+
+<!-- fim do container com gráfico -->
+
+<!-- inicio do container com tabela com os dados do grafico
+<chart:ChartContainerContent icon="sap-icon://table-view" title="Table">
+<chart:content>
+<Table id="chartContainerContentTable" items="{ path: '/itens' }">
+<columns>
+<Column demandPopin="true">
+<Label design="Bold" text="{i18n>Year}"/></Column>
+<Column demandPopin="true">
+<Label design="Bold" text="{i18n>SAP}"/></Column>
+<Column demandPopin="true">
+<Label design="Bold" text="{i18n>SAPUI5}"/></Column>
+<Column demandPopin="true">
+<Label design="Bold" text="{i18n>ABAP}"/></Column>
+<Column demandPopin="true">
+<Label design="Bold" text="{i18n>JAVA}"/></Column>
+</columns>
+<ColumnListItem press="">
+<Text text="{path: 'Year',
+			type: 'sap.ui.model.type.Date',
+			formatOptions: {
+				source: {
+					pattern: 'yyyy-MM-ddTHH:mm:ss'
+				},
+				pattern: 'YYYY'
+			} }"></Text>  
+<Text text="{SAP}"></Text>
+<Text text="{SAPUI5}"></Text>
+<Text text="{ABAP}"></Text>
+<Text text="{JAVA}"></Text>
+</ColumnListItem>
+</Table>
+</chart:content>
+</chart:ChartContainerContent>
+-->
+<!-- fim do container com tabela com os dados do grafico--> 
+
+
+</chart:ChartContainer>
+
+</content>
+</Page>
+</pages>
+</App>
+ </Shell>
+</mvc:View>

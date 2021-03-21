@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGQM_APTDIA_SRV" xml:lang="pt" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="AponTot" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WORKCENTER"/>
+                    <PropertyRef Name="TIME"/>
+                </Key>
+                <Property Name="WERKS" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DATE" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="PRODH" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="WORKCENTER" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="TIME" Type="Edm.String" Nullable="false" MaxLength="14"/>
+                <Property Name="VALUE_APPROVED" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="0"/>
+                <Property Name="PERC_APPROVED" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="0"/>
+                <Property Name="VALUE_REPROVED" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="0"/>
+                <Property Name="PERC_REPROVED" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="0"/>
+                <Property Name="TOTAL" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="0"/>
+            </EntityType>
+            <EntityType Name="VH_Werks" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WERKS"/>
+                </Key>
+                <Property Name="WERKS" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Centro"/>
+                <Property Name="NAME1" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Nome 1"/>
+            </EntityType>
+            <EntityType Name="VH_Prodh" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="PRODH"/>
+                </Key>
+                <Property Name="PRODH" Type="Edm.String" Nullable="false" MaxLength="18" sap:label="Hierar.produtos"/>
+                <Property Name="VTEXT" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Denominação"/>
+            </EntityType>
+            <EntityType Name="VH_Arbpl" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WERKS"/>
+                    <PropertyRef Name="ARBPL"/>
+                </Key>
+                <Property Name="WERKS" Type="Edm.String" Nullable="false" MaxLength="4" sap:label="Centro"/>
+                <Property Name="ARBPL" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Centro trabalho"/>
+                <Property Name="ARBPL_TX" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Dscr.Centro trabalho"/>
+            </EntityType>
+            <EntityContainer Name="ZGQM_APTDIA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="AponTotSet" EntityType="ZGQM_APTDIA_SRV.AponTot" sap:content-version="1"/>
+                <EntitySet Name="VH_WerksSet" EntityType="ZGQM_APTDIA_SRV.VH_Werks" sap:content-version="1"/>
+                <EntitySet Name="VH_ProdhSet" EntityType="ZGQM_APTDIA_SRV.VH_Prodh" sap:content-version="1"/>
+                <EntitySet Name="VH_ArbplSet" EntityType="ZGQM_APTDIA_SRV.VH_Arbpl" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="http://cbcsapmob03.sapcbc.corp:8020/sap/opu/odata/sap/ZGQM_APTDIA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://cbcsapmob03.sapcbc.corp:8020/sap/opu/odata/sap/ZGQM_APTDIA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

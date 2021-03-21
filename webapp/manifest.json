@@ -1,0 +1,114 @@
+{
+  "_version": "",
+  "sap.app": {
+    "id": "estudovizframerealcbc",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "",
+    "description": "",
+    "resources": "resources.json",
+    "ach": "ach",
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZGQM_APTDIA_SRV/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+		}
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://task",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+
+  "sap.ui5": {
+    "flexEnabled": false,
+    "rootView": {
+      "viewName": "estudovizframerealcbc.view.ViewFilter",
+      "type": "XML",
+      "async": true,
+      "id": "ViewFilter"
+    },
+    "dependencies": {
+      "minUI5Version": "1.66.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "estudovizframerealcbc.i18n.i18n"
+        }
+      },
+			"": {
+				"dataSource": "mainService",
+				"preload": true
+			}
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "estudovizframerealcbc.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteViewFilter",
+          "pattern": "RouteViewFilter",
+          "target": ["TargetViewFilter"]
+        },{
+          "name": "RouteViewChart",
+          "pattern": "RouteViewChart/({werks},{workcenter},{date})",
+          "target": ["TargetViewChart"]
+        }
+      ],
+      "targets": {
+        "TargetViewFilter": {
+          "viewName": "ViewFilter"
+        },
+        "TargetViewChart": {
+          "viewName": "ViewChart"
+        }
+
+
+      }
+    }
+  }
+}
